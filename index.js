@@ -18,7 +18,23 @@ for(let i = 0;i < 10; i ++){
     point.id = `computerPoint${i}`
 }
 
+
+
 let num = 0
+
+//computer choices 
+
+cooperate.addEventListener("click", function(){
+let currentComputer = document.querySelector(`#computerPoint${num}`)
+currentComputer.style.backgroundColor = "red"
+})
+
+defect.addEventListener("click", function(){
+let currentComputer = document.querySelector(`#computerPoint${num}`)
+currentComputer.style.backgroundColor = "green"
+})
+
+//player choices
 
 cooperate.addEventListener("click", function(){
     console.log("cooperate")
@@ -33,4 +49,5 @@ defect.addEventListener("click", function(){
     current.style.backgroundColor = "red"
     num++
 })
+
 
