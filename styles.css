@@ -1,10 +1,12 @@
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 }
 
 .scoreboard{
-    width:90vh;
+    width:95vh;
     border: solid black 2px;
     background-color: yellow;
     height:20vh;
@@ -25,6 +27,43 @@ body{
 .point{
     width:80px;
     height:80px;
-    border:solid black 2px;
+    border:solid black 2px ;
     border-radius: 10000000px;
+    background-color: white;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:100px;
+}
+
+#controls{
+    display: flex;
+    gap:20px;
+}
+
+#cooperate{
+    width:200px;
+    height:200px;
+    font-size:2rem;
+    background-color: green;
+    border-radius: 50px;
+    color:white;
+    transition:ease-in-out .2s
+}
+
+#defect{
+    width:200px;
+    height:200px;
+    font-size:2rem;
+    background-color: red;
+    border-radius: 50px;
+    color:white;
+    transition:ease-in-out .2s
+}
+
+button:hover{
+    transform:scale(1.1)
 }
