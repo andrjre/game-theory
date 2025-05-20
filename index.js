@@ -18,9 +18,11 @@ for(let i = 0;i < 10; i ++){
     point.id = `computerPoint${i}`
 }
 
-
-
+let units = 0
 let num = 0
+let current = document.querySelector(`#playerPoint${num}`)
+let currentComputer = document.querySelector(`#computerPoint${num}`)
+let playerUnits = document.querySelector("#playerUnits")
 
 //computer choices 
 
@@ -36,11 +38,25 @@ currentComputer.style.backgroundColor = "green"
 
 //player choices
 
+let playerColor = getComputedStyle(current).backgroundColor;
+let computerColor = getComputedStyle(currentComputer).backgroundColor;
+
+
+
 cooperate.addEventListener("click", function(){
     console.log("cooperate")
     let current = document.querySelector(`#playerPoint${num}`)
     current.style.backgroundColor = "green"
     num++
+    units = units + 5
+    playerUnits.textContent = `Player Units: ${units}`
+
+    if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
+    console.log("you win ")} 
+    else if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
+    console.log("you lose")
+} 
+
 })
 
 defect.addEventListener("click", function(){
@@ -48,6 +64,12 @@ defect.addEventListener("click", function(){
     let current = document.querySelector(`#playerPoint${num}`)
     current.style.backgroundColor = "red"
     num++
+
+    if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
+    console.log("you win ")}
+    else if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
+    console.log("you lose")
+} 
 })
 
-
+// cant cooperate and defect
