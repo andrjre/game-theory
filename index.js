@@ -18,7 +18,9 @@ for(let i = 0;i < 10; i ++){
     point.id = `computerPoint${i}`
 }
 
-let units = 0
+let score = 0
+let computerScore = 0 
+
 let num = 0
 let current = document.querySelector(`#playerPoint${num}`)
 let currentComputer = document.querySelector(`#computerPoint${num}`)
@@ -41,21 +43,24 @@ currentComputer.style.backgroundColor = "green"
 let playerColor = getComputedStyle(current).backgroundColor;
 let computerColor = getComputedStyle(currentComputer).backgroundColor;
 
-
-
 cooperate.addEventListener("click", function(){
     console.log("cooperate")
     let current = document.querySelector(`#playerPoint${num}`)
     current.style.backgroundColor = "green"
+
+    let currentComputer = document.querySelector(`#computerPoint${num}`)
+    currentComputer.style.backgroundColor = "red"
+    
     num++
-    units = units + 5
-    playerUnits.textContent = `Player Units: ${units}`
+    score = score + 5
+    playerUnits.textContent = `Player Units: ${score}`
 
     if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
-    console.log("you win ")} 
+    console.log("you win")} 
     else if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
     console.log("you lose")
-} 
+    } 
+    else(console.log("coop error"))
 
 })
 
@@ -63,13 +68,21 @@ defect.addEventListener("click", function(){
     console.log("defect")
     let current = document.querySelector(`#playerPoint${num}`)
     current.style.backgroundColor = "red"
-    num++
 
-    if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
-    console.log("you win ")}
-    else if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
-    console.log("you lose")
-} 
+    let currentComputer = document.querySelector(`#computerPoint${num}`)
+    currentComputer.style.backgroundColor = "green"
+
+    num++
+    computerScore = computerScore + 5
+    computerUnits.textContent = `Computer Units: ${computerScore}`
+
+    if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
+    console.log("you lose")} 
+    else if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
+    console.log("you win")
+    } 
+    else(console.log("defect error"))
+
 })
 
 // cant cooperate and defect
