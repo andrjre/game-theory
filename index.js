@@ -4,6 +4,8 @@ let scoreboard = document.querySelectorAll(".scoreboard")
 let cooperate = document.querySelector("#cooperate")
 let defect = document.querySelector("#defect")
 
+// creating grids and setup
+
 for(let i = 0;i < 10; i ++){
     let point = document.createElement("div")
     point.className = "point"
@@ -20,7 +22,6 @@ for(let i = 0;i < 10; i ++){
 
 let score = 0
 let computerScore = 0 
-
 let num = 0
 let current = document.querySelector(`#playerPoint${num}`)
 let currentComputer = document.querySelector(`#computerPoint${num}`)
@@ -28,15 +29,15 @@ let playerUnits = document.querySelector("#playerUnits")
 
 //computer choices 
 
-cooperate.addEventListener("click", function(){
+let computerDefect = function(){
 let currentComputer = document.querySelector(`#computerPoint${num}`)
 currentComputer.style.backgroundColor = "red"
-})
+}
 
-defect.addEventListener("click", function(){
+let computerCooperate = function(){
 let currentComputer = document.querySelector(`#computerPoint${num}`)
 currentComputer.style.backgroundColor = "green"
-})
+}
 
 //player choices
 
@@ -48,8 +49,7 @@ cooperate.addEventListener("click", function(){
     let current = document.querySelector(`#playerPoint${num}`)
     current.style.backgroundColor = "green"
 
-    let currentComputer = document.querySelector(`#computerPoint${num}`)
-    currentComputer.style.backgroundColor = "red"
+    computerDefect()
     
     num++
     score = score + 5
@@ -69,8 +69,7 @@ defect.addEventListener("click", function(){
     let current = document.querySelector(`#playerPoint${num}`)
     current.style.backgroundColor = "red"
 
-    let currentComputer = document.querySelector(`#computerPoint${num}`)
-    currentComputer.style.backgroundColor = "green"
+    computerCooperate()
 
     num++
     computerScore = computerScore + 5
@@ -84,5 +83,3 @@ defect.addEventListener("click", function(){
     else(console.log("defect error"))
 
 })
-
-// cant cooperate and defect
