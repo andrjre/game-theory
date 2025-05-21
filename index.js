@@ -65,14 +65,17 @@ cooperate.addEventListener("click", function(){
         currentColor === "green" && 
         currentComputerColor === "rgb(255, 0, 0)"
     ){
+    computerScore = computerScore + 5
     console.log("you lose")}
     else if(
         current.style.backgroundColor === currentComputer.style.backgroundColor){
+    score = score + 3
+    computerScore = computerScore + 3
     console.log("draw")}
     else{console.log("coop error")}
     
     num++
-    score = score + 5
+    computerUnits.textContent = `Computer Units: ${computerScore}`
     playerUnits.textContent = `Player Units: ${score}`
 })
 
@@ -99,14 +102,18 @@ defect.addEventListener("click", function(){
         current.style.backgroundColor == "red" &&
         currentComputerColor == "rgb(0, 128, 0)"
     ){
+    score = score + 5
     console.log("you win")} 
     else if(
-        current.style.backgroundColor === currentComputer.style.backgroundColor){
+        current.style.backgroundColor === currentComputer.style.backgroundColor
+    ){
+    score = score + 1
+    computerScore = computerScore + 1
     console.log("draw")}
     else(
         console.log("defect error"))
 
     num++
-    computerScore = computerScore + 5
+    playerUnits.textContent = `Player Units: ${score}`
     computerUnits.textContent = `Computer Units: ${computerScore}`
 })
