@@ -47,39 +47,56 @@ let computerColor = getComputedStyle(currentComputer).backgroundColor;
 cooperate.addEventListener("click", function(){
     console.log("cooperate")
     let current = document.querySelector(`#playerPoint${num}`)
+    let currentComputer = document.querySelector(`#computerPoint${num}`)
+    
     current.style.backgroundColor = "green"
-
     computerDefect()
+    
+
+    let currentComputerColor = getComputedStyle(currentComputer).backgroundColor
+    if(
+        current.style.backgroundColor == "green" && 
+        currentComputerColor === "rgb(255, 0, 0)"
+    ){
+    console.log("you win")}
+    else if(
+        current.style.backgroundColor == "red" &&
+        currentComputerColor == "rgb(0, 128, 0)"
+    ){
+    console.log("you lose")
+    } 
+    else(console.log("coop error"))
     
     num++
     score = score + 5
     playerUnits.textContent = `Player Units: ${score}`
-
-    if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
-    console.log("you win")} 
-    else if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
-    console.log("you lose")
-    } 
-    else(console.log("coop error"))
-
 })
 
 defect.addEventListener("click", function(){
     console.log("defect")
     let current = document.querySelector(`#playerPoint${num}`)
+    let currentComputer = document.querySelector(`#computerPoint${num}`)
+
     current.style.backgroundColor = "red"
 
     computerCooperate()
 
-    num++
-    computerScore = computerScore + 5
-    computerUnits.textContent = `Computer Units: ${computerScore}`
+    
 
-    if(current.style.backgroundColor == "red" && currentComputer.style.backgroundColor == "green"){
+    let currentComputerColor = getComputedStyle(currentComputer).backgroundColor
+    if(
+        current.style.backgroundColor == "red" &&
+        currentComputerColor == "rgb(0, 128, 0)"
+    ){
     console.log("you lose")} 
-    else if(current.style.backgroundColor == "green" && currentComputer.style.backgroundColor == "red"){
+    else if(
+        current.style.backgroundColor == "green" &&
+        currentComputerColor == "rgb(255, 0, 0)"){
     console.log("you win")
     } 
     else(console.log("defect error"))
 
+    num++
+    computerScore = computerScore + 5
+    computerUnits.textContent = `Computer Units: ${computerScore}`
 })
