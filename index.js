@@ -41,31 +41,35 @@ currentComputer.style.backgroundColor = "green"
 
 //player choices
 
-let playerColor = getComputedStyle(current).backgroundColor;
 let computerColor = getComputedStyle(currentComputer).backgroundColor;
 
 cooperate.addEventListener("click", function(){
     console.log("cooperate")
     let current = document.querySelector(`#playerPoint${num}`)
     let currentComputer = document.querySelector(`#computerPoint${num}`)
-    
     current.style.backgroundColor = "green"
-    computerDefect()
     
+    let randomNum = (Math.floor(Math.random()*2))
 
+    if (randomNum == 0){
+    computerDefect()
+    }
+    else{
+    computerCooperate()
+    }
+    
     let currentComputerColor = getComputedStyle(currentComputer).backgroundColor
+    let currentColor = "green"
+
     if(
-        current.style.backgroundColor == "green" && 
+        currentColor === "green" && 
         currentComputerColor === "rgb(255, 0, 0)"
     ){
-    console.log("you win")}
+    console.log("you lose")}
     else if(
-        current.style.backgroundColor == "red" &&
-        currentComputerColor == "rgb(0, 128, 0)"
-    ){
-    console.log("you lose")
-    } 
-    else(console.log("coop error"))
+        current.style.backgroundColor === currentComputer.style.backgroundColor){
+    console.log("draw")}
+    else{console.log("coop error")}
     
     num++
     score = score + 5
@@ -79,22 +83,28 @@ defect.addEventListener("click", function(){
 
     current.style.backgroundColor = "red"
 
+    let randomNum = (Math.floor(Math.random()*2))
+
+    if (randomNum == 0){
+    computerDefect()
+    }
+    else{
     computerCooperate()
-
+    }
     
-
     let currentComputerColor = getComputedStyle(currentComputer).backgroundColor
+    let currentColor = "red"
+
     if(
         current.style.backgroundColor == "red" &&
         currentComputerColor == "rgb(0, 128, 0)"
     ){
-    console.log("you lose")} 
+    console.log("you win")} 
     else if(
-        current.style.backgroundColor == "green" &&
-        currentComputerColor == "rgb(255, 0, 0)"){
-    console.log("you win")
-    } 
-    else(console.log("defect error"))
+        current.style.backgroundColor === currentComputer.style.backgroundColor){
+    console.log("draw")}
+    else(
+        console.log("defect error"))
 
     num++
     computerScore = computerScore + 5
