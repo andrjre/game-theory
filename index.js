@@ -81,6 +81,7 @@ cooperate.addEventListener("click", function(){
 })
 
 defect.addEventListener("click", function(){
+
     console.log("defect")
     let current = document.querySelector(`#playerPoint${num}`)
     let currentComputer = document.querySelector(`#computerPoint${num}`)
@@ -97,7 +98,6 @@ defect.addEventListener("click", function(){
     }
     
     let currentComputerColor = getComputedStyle(currentComputer).backgroundColor
-    let currentColor = "red"
 
     if(
         current.style.backgroundColor == "red" &&
@@ -118,3 +118,4 @@ defect.addEventListener("click", function(){
     playerUnits.textContent = `Player Units: ${score}`
     computerUnits.textContent = `Computer Units: ${computerScore}`
 })
+
