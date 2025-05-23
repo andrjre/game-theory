@@ -68,7 +68,8 @@ cooperate.addEventListener("click", function(){
     computerScore = computerScore + 5
     console.log("you lose")}
     else if(
-        current.style.backgroundColor === currentComputer.style.backgroundColor){
+        current.style.backgroundColor === currentComputer.style.backgroundColor
+    ){
     score = score + 3
     computerScore = computerScore + 3
     console.log("draw")}
