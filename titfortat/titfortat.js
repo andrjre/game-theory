@@ -52,14 +52,13 @@ cooperate.addEventListener("click", function(){
     let currentComputerColor = getComputedStyle(currentComputer).backgroundColor
     let currentColor = "green"
 
-    if (`playerPoint${num - 1}` === "green"){
+    if (`playerPoint${num - 1}` === currentColor){
         console.log("tit")
         computerCooperate()
         }
     else{
-        computerCooperate()
+        computerDefect()
         }
-
 
     if(
         currentColor === "green" && 
@@ -78,9 +77,6 @@ cooperate.addEventListener("click", function(){
     num++
     computerUnits.textContent = `Computer Units: ${computerScore}`
     playerUnits.textContent = `Player Units: ${score}`
-
-
-      
 })
 
 defect.addEventListener("click", function(){
